@@ -6,6 +6,7 @@ from app.repositories.orders.task_repository import TaskRepository
 from app.database.models.task import Task
 from app.schemes.task_schemes import CreateTaskScheme, UpdateTaskScheme
 from app.exceptions.task_already_completed import TaskAlreadyCompleted
+from app.database.database import async_session
 
 
 class TaskService(BaseService[Task]):
@@ -58,3 +59,7 @@ class TaskService(BaseService[Task]):
 
         await session.commit()
         return obj
+
+    async def delete_expired_tasks(self):
+        async with async_session() as session:
+            await self.repository.delete_expired_tasks(session)
