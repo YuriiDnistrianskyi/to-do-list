@@ -5,10 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ca3d1d7-0a93-4d6d-a068-d648eb05fbf1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/repositories/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/repositories/base_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/repositories/task_repository.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/repositories/user_repository.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/core/security.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/exceptions/not_found.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/exceptions/user_already_exists.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/schemas/task_schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/schemas/user_schemas.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/base_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/orders/task_service.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/services/orders/user_service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/base_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/base_repository.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,9 +51,15 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "create-services"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ichsp\dev\Repository\to-do-list\app\schemas" />
+      <recent name="C:\Users\ichsp\dev\Repository\to-do-list\app\repositories\orders" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
