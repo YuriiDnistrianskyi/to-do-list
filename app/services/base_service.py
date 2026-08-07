@@ -20,13 +20,5 @@ class BaseService(Generic[T]):
         return await self.repository.get_by_id(obj_id, session)
 
 
-    async def create(self, schema, session: AsyncSession) -> T:
-        pass
-
-
-    async def update(self, obj_id: int, schema, session: AsyncSession) -> T:
-        pass
-
-
     async def delete(self, obj_id: int, session: AsyncSession) -> None:
         await self.repository.delete(obj_id, session)

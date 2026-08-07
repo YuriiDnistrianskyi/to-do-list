@@ -5,17 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ca3d1d7-0a93-4d6d-a068-d648eb05fbf1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/core/security.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/exceptions/not_found.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/exceptions/user_already_exists.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/schemas/task_schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/schemas/user_schemas.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/base_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/orders/task_service.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/services/orders/user_service.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/repositories/base_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/base_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/base_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/base_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
