@@ -10,7 +10,7 @@ from app.exceptions.task_already_completed import TaskAlreadyCompleted
 
 task_router = APIRouter()
 
-@task_router.get('/tasks')
+@task_router.get('/')
 async def get_tasks(
         session: AsyncSession = Depends(get_async_session)
 ):
@@ -22,13 +22,13 @@ async def get_tasks(
     except Exception as ex:
         raise HTTPException(status_code=500, detail=str(ex))
 
-@task_router.get('/tasks/{task_id')
+@task_router.get('/{task_id')
 async def get_task(
         task_id: int,
         session: AsyncSession = Depends(get_async_session)
 ):
     try:
-        task = await task_service.get_one(task_id, session)
+        task = await task_service.get_by_id(task_id, session)
         return {
             'task': task
         }
@@ -37,7 +37,7 @@ async def get_task(
     except Exception as ex:
         raise HTTPException(status_code=500, detail=str(ex))
 
-@task_router.post('/tasks')
+@task_router.post('/')
 async def create_task(
         data: CreateTaskScheme,
         session: AsyncSession = Depends(get_async_session)
@@ -53,7 +53,7 @@ async def create_task(
         raise HTTPException(status_code=500, detail=str(ex))
 
 
-@task_router.patch('/tasks/{task_id')
+@task_router.patch('/{task_id')
 async def update_task(
         task_id: int,
         data: UpdateTaskScheme,
@@ -69,7 +69,7 @@ async def update_task(
     except Exception as ex:
         raise HTTPException(status_code=500, detail=str(ex))
 
-@task_router.post('/tasks/{task_id}/complete')
+@task_router.post('/{task_id}/complete')
 async def complete_task(
         task_id: int,
         session: AsyncSession = Depends(get_async_session)
@@ -86,7 +86,7 @@ async def complete_task(
     except Exception as ex:
         raise HTTPException(status_code=500, detail=str(ex))
 
-@task_router.delete('/tasks/{task_id}')
+@task_router.delete('/{task_id}')
 async def delete_task(
         task_id: int,
         session: AsyncSession = Depends(get_async_session)

@@ -10,13 +10,13 @@ from app.exceptions.user_already_exists import UserAlreadyExists
 
 user_router = APIRouter()
 
-@user_router.get('/users/{user_id')
+@user_router.get('/{user_id')
 async def get_user(
         user_id: int,
         session: AsyncSession = Depends(get_async_session)
 ):
     try:
-        user = await user_service.get_one(user_id, session)
+        user = await user_service.get_by_id(user_id, session)
         return {
             'user': user
         }
@@ -25,13 +25,13 @@ async def get_user(
     except Exception as ex:
         raise HTTPException(status_code=500, detail=str(ex))
 
-@user_router.post('/users')
+@user_router.post('/')
 async def create_user(
         data: CreateUserScheme,
         session: AsyncSession = Depends(get_async_session)
 ):
     try:
-        user = await user_service.create_user(data, session)
+        user = await user_service.create(data, session)
         return {
             'user': user
         }
@@ -42,7 +42,7 @@ async def create_user(
     except Exception as ex:
         raise HTTPException(status_code=500, detail=str(ex))
 
-@user_router.patch('/users/{user_id')
+@user_router.patch('/{user_id')
 async def update_user(
         user_id: int,
         data: UpdateUserScheme,
@@ -58,7 +58,7 @@ async def update_user(
     except Exception as ex:
         raise HTTPException(status_code=500, detail=str(ex))
 
-@user_router.delete('/users/{user_id}')
+@user_router.delete('/{user_id}')
 async def delete_user(
         user_id: int,
         session: AsyncSession = Depends(get_async_session)

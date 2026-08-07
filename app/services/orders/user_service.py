@@ -39,4 +39,5 @@ class UserService(BaseService[User]):
         if 'name' in data:
             obj.name = data['name']
 
+        await session.commit()
         return obj

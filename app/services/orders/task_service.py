@@ -30,6 +30,7 @@ class TaskService(BaseService[Task]):
         if 'deadline' in data:
             obj.deadline = data['deadline']
 
+        await session.commit()
         return obj
 
     async def complete(self, obj_id: int, session: AsyncSession) -> Task:
@@ -37,4 +38,6 @@ class TaskService(BaseService[Task]):
         if obj.is_completed:
             raise TaskAlreadyCompleted("Task already completed")
         obj.is_completed = Boolean(True)
+
+        await session.commit()
         return obj

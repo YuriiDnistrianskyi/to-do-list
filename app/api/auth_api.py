@@ -18,7 +18,7 @@ async def login(
 ):
     try:
         user = await user_service.get_by_email(data.email, session)
-        if not verify_password(user.password_hash, data.passwprd):
+        if not verify_password(user.password_hash, data.password):
             raise HTTPException(status_code=400, detail="Incorrect password")
 
         access_token = create_access_token(user.id)
