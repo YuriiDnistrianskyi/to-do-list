@@ -6,9 +6,12 @@ from app.schemes.task_schemes import CreateTaskScheme, UpdateTaskScheme
 from app.database.dependencies import get_async_session
 from app.exceptions.not_found import NotFound
 from app.exceptions.task_already_completed import TaskAlreadyCompleted
+from app.core.get_current_user import get_current_user
 
 
-task_router = APIRouter()
+task_router = APIRouter(
+    dependencies=[Depends(get_current_user)]
+)
 
 @task_router.get('/')
 async def get_tasks(
@@ -40,10 +43,11 @@ async def get_task(
 @task_router.post('/')
 async def create_task(
         data: CreateTaskScheme,
+        user_id: int = Depends(get_current_user),
         session: AsyncSession = Depends(get_async_session)
 ):
     try:
-        task = await task_service.create(data, session)
+        task = await task_service.create(data, user_id, session)
         return {
             'task': task
         }
