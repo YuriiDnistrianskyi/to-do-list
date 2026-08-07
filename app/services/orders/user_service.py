@@ -2,14 +2,23 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import IntegrityError
 
 from app.services.base_service import BaseService
+from app.repositories.orders.user_repository import UserRepository
 from app.database.models.user import User
-from app.schemas.user_schemas import CreateUserSchema, UpdateUserSchema
+from app.schemes.user_schemes import CreateUserScheme, UpdateUserScheme
 from app.core.security import create_hash
 from app.exceptions.user_already_exists import UserAlreadyExists
 
 
 class UserService(BaseService[User]):
-    async def create(self, schema: CreateUserSchema, session: AsyncSession) -> User:
+    def __init__(self, repository: UserRepository):
+        super().__init__(repository)
+        self.repository: UserRepository = repository
+
+    async def get_by_email(self, email: str, session: AsyncSession) -> User:
+        user = await self.repository.get_by_email(email, session)
+        return user
+
+    async def create(self, schema: CreateUserScheme, session: AsyncSession) -> User:
         user = User(
             name=schema.name,
             email=schema.email,
@@ -23,11 +32,12 @@ class UserService(BaseService[User]):
         return user
 
 
-    async def update(self, obj_id: int, schema: UpdateUserSchema, session: AsyncSession) -> User:
+    async def update(self, obj_id: int, schema: UpdateUserScheme, session: AsyncSession) -> User:
         obj = await self.repository.get_by_id(obj_id, session)
         data = schema.model_dump(exclude_unset=True)
 
         if 'name' in data:
             obj.name = data['name']
 
+        await session.commit()
         return obj

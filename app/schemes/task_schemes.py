@@ -3,11 +3,11 @@ from datetime import datetime
 from typing import Optional
 
 
-class CreateTaskSchema(BaseModel):
+class CreateTaskScheme(BaseModel):
     description: str
     deadline: datetime
     # user_id: int
 
-class UpdateTaskSchema(BaseModel):
+class UpdateTaskScheme(BaseModel):
     description: Optional[str] = None
     deadline: Optional[datetime] = None

@@ -9,8 +9,8 @@ class Task(Base):
 
     id: Mapped[Integer] = mapped_column(Integer, primary_key=True, autoincrement=True)
     description: Mapped[String] = mapped_column(String) #
-    deadline: Mapped[DateTime] = mapped_column(DateTime)
-    is_completed: Mapped[Boolean] = mapped_column(Boolean)
+    deadline: Mapped[DateTime] = mapped_column(DateTime(timezone=True))
+    is_completed: Mapped[Boolean] = mapped_column(Boolean, default=False, nullable=False)
     user_id: Mapped[Integer] = mapped_column(Integer, ForeignKey('users.id'))
 
     user = relationship('User', back_populates='tasks')

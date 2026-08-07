@@ -20,7 +20,7 @@ class BaseRepository(Generic[T]):
     async def get_by_id(self, obj_id: int, session: AsyncSession) -> T:
         obj = await session.get(self._model, obj_id)
         if not obj:
-            raise NotFound(f"{self._model} not found")
+            raise NotFound(f"Not found")
         return obj
 
     async def add(self, obj: T, session: AsyncSession) -> None:
@@ -34,5 +34,6 @@ class BaseRepository(Generic[T]):
     async def delete(self, obj_id: int, session: AsyncSession) -> None:
         obj = await session.get(self._model, obj_id)
         if not obj:
-            raise NotFound(f"{self._model} not found")
+            raise NotFound("Not found")
         await session.delete(obj)
+        await session.commit()

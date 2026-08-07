@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ca3d1d7-0a93-4d6d-a068-d648eb05fbf1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/exceptions/task_already_completed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/task_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/task_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/database/models/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/database/models/task.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/orders/task_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/orders/task_repository.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/orders/task_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/orders/task_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -42,7 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "create-services"
+    "git-widget-placeholder": "create-api"
   }
 }]]></component>
   <component name="RecentsManager">
