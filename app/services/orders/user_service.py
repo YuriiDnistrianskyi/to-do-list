@@ -2,6 +2,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.exc import IntegrityError
 
 from app.services.base_service import BaseService
+from app.repositories.orders.user_repository import UserRepository
 from app.database.models.user import User
 from app.schemes.user_schemes import CreateUserScheme, UpdateUserScheme
 from app.core.security import create_hash
@@ -9,6 +10,14 @@ from app.exceptions.user_already_exists import UserAlreadyExists
 
 
 class UserService(BaseService[User]):
+    def __init__(self, repository: UserRepository):
+        super().__init__(repository)
+        self.repository: UserRepository = repository
+
+    async def get_by_email(self, email: str, session: AsyncSession) -> User:
+        user = await self.repository.get_by_email(email, session)
+        return user
+
     async def create(self, schema: CreateUserScheme, session: AsyncSession) -> User:
         user = User(
             name=schema.name,
