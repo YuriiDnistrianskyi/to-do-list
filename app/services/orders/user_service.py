@@ -3,13 +3,13 @@ from sqlalchemy.exc import IntegrityError
 
 from app.services.base_service import BaseService
 from app.database.models.user import User
-from app.schemas.user_schemas import CreateUserSchema, UpdateUserSchema
+from app.schemes.user_schemes import CreateUserScheme, UpdateUserScheme
 from app.core.security import create_hash
 from app.exceptions.user_already_exists import UserAlreadyExists
 
 
 class UserService(BaseService[User]):
-    async def create(self, schema: CreateUserSchema, session: AsyncSession) -> User:
+    async def create(self, schema: CreateUserScheme, session: AsyncSession) -> User:
         user = User(
             name=schema.name,
             email=schema.email,
@@ -23,7 +23,7 @@ class UserService(BaseService[User]):
         return user
 
 
-    async def update(self, obj_id: int, schema: UpdateUserSchema, session: AsyncSession) -> User:
+    async def update(self, obj_id: int, schema: UpdateUserScheme, session: AsyncSession) -> User:
         obj = await self.repository.get_by_id(obj_id, session)
         data = schema.model_dump(exclude_unset=True)
 

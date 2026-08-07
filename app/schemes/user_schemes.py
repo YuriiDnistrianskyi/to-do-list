@@ -2,10 +2,10 @@ from pydantic import BaseModel, EmailStr
 from typing import Optional
 
 
-class CreateUserSchema(BaseModel):
+class CreateUserScheme(BaseModel):
     name: str
     email: EmailStr
     password: str
 
-class UpdateUserSchema(BaseModel):
+class UpdateUserScheme(BaseModel):
     name: Optional[str] = None
