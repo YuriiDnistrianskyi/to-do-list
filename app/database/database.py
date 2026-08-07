@@ -1,4 +1,4 @@
-from sqlalchemy.ext.asyncio import create_async_engine, AsyncSessin
+from sqlalchemy.ext.asyncio import create_async_engine, AsyncSession
 from sqlalchemy.orm import sessionmaker, DeclarativeBase
 
 from app.core.config import DATABASE_URL
@@ -17,3 +17,6 @@ async_session = sessionmaker(
 
 class Base(DeclarativeBase):
     pass
+
+from .models.user import User
+from .models.task import Task
