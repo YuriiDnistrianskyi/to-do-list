@@ -1,6 +1,7 @@
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import Boolean
 
+from app.repositories.orders.user_repository import UserRepository
 from app.services.base_service import BaseService
 from app.repositories.orders.task_repository import TaskRepository
 from app.database.models.task import Task
@@ -10,9 +11,10 @@ from app.database.database import async_session
 
 
 class TaskService(BaseService[Task]):
-    def __init__(self, repository: TaskRepository):
+    def __init__(self, repository: TaskRepository, user_repository: UserRepository):
         super().__init__(repository)
         self.repository: TaskRepository = repository
+        self.user_repository: UserRepository = user_repository
 
     async def get_all_tasks(self, session: AsyncSession, status: str = None) -> list[Task]:
         if status is not None:
@@ -32,6 +34,16 @@ class TaskService(BaseService[Task]):
             deadline=schema.deadline,
             is_completed=False,
             user_id=user_id,
+        )
+
+        user = await self.user_repository.get_by_id(user_id, session)
+
+        from app.services import email_service
+
+        await email_service.send(
+            to=user.email,
+            subject='Task Created',
+            body='Created New Task'
         )
 
         await self.repository.add(task, session)

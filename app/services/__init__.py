@@ -5,6 +5,6 @@ from .orders.email_service import EmailService
 from app.repositories import user_repository, task_repository
 
 user_service = UserService(user_repository)
-task_service = TaskService(task_repository)
+task_service = TaskService(task_repository, user_repository)
 
 email_service = EmailService()
