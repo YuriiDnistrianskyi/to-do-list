@@ -75,3 +75,18 @@ class TaskService(BaseService[Task]):
     async def delete_expired_tasks(self):
         async with async_session() as session:
             await self.repository.delete_expired_tasks(session)
+
+    async def remind_about_tasks(self):
+        async with async_session() as session:
+            tasks = await self.repository.get_due_soon(session)
+
+            from app.services import email_service
+
+            for task in tasks:
+                user = await self.user_repository.get_by_id(task.user_id, session)
+
+                await email_service.send(
+                    to=user.email,
+                    subject='Task Reminded',
+                    body=f'Task Reminded. \n Task: {task.description}. \n Date: {task.deadline}'
+                )
