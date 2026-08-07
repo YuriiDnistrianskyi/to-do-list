@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ca3d1d7-0a93-4d6d-a068-d648eb05fbf1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/core/get_current_user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/api/task_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/task_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/database/models/task.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/database/models/task.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/repositories/orders/task_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/orders/task_repository.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/orders/task_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/orders/task_service.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

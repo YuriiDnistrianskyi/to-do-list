@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from app.services import task_service
@@ -15,17 +15,19 @@ task_router = APIRouter(
 
 @task_router.get('/')
 async def get_tasks(
+        status: str | None = Query(default=None),
         session: AsyncSession = Depends(get_async_session)
 ):
     try:
-        tasks = await task_service.get_all(session)
+        print(status)
+        tasks = await task_service.get_all_tasks(session, status)
         return {
             'tasks': tasks
         }
     except Exception as ex:
         raise HTTPException(status_code=500, detail=str(ex))
 
-@task_router.get('/{task_id')
+@task_router.get('/{task_id}')
 async def get_task(
         task_id: int,
         session: AsyncSession = Depends(get_async_session)
