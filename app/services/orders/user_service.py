@@ -29,6 +29,13 @@ class UserService(BaseService[User]):
             await self.repository.add(user, session)
         except IntegrityError:
             raise UserAlreadyExists('User already exists')
+
+        from app.services import email_service
+        await email_service.send(
+            to=schema.email,
+            subject='User created',
+            body='User created. So Welcome!',
+        )
         return user
 
 
