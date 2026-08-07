@@ -5,14 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0ca3d1d7-0a93-4d6d-a068-d648eb05fbf1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/core/jwt.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/auth_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/auth_api.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/core/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/core/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/repositories/orders/user_repository.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/repositories/orders/user_repository.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/services/orders/user_service.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/orders/user_service.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/task_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/task_api.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/user_api.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/user_api.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
